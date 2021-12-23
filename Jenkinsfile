@@ -20,7 +20,7 @@ pipeline {
 
 				stage ('Front Test') {
 
-					when { expression { param.RUN_FRONT_END_TEST}}
+					when { expression { params.RUN_FRONT_END_TEST}}
 					steps {
 						sh 'node ./frontend/test.js'
 					}
