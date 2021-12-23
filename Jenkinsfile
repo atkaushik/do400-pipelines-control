@@ -10,7 +10,7 @@ pipeline {
 	stages {
 		stage (' Run shell script') {
 			steps {
-				sh 'uname -a'
+				sh script 'ls -la /tmp/', returnStdout: true
 			}
 			
 		}
