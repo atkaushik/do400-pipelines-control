@@ -5,6 +5,10 @@ pipeline {
 
 		}
 	}
+	environment {
+		USER = 'root'
+		PATH = "/root:$PATH"
+	}
 
 
 	stages {
