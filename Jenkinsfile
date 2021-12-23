@@ -14,7 +14,7 @@ pipeline {
 	stages {
 		stage (' Run shell script') {
 			steps {
-				sh 'oci os bucket list'
+				sh '/root/bin/oci os bucket list'
 			}
 			
 		}
