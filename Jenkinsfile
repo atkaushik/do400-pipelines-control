@@ -7,16 +7,22 @@ pipeline {
 	}
 
 	stages {
-		stage ('Backned Tests') {
-			steps {
-				sh 'node ./backend/test.js'
+		stage (' RUn Test') {
+			parallel {
+				stage ('Backend Tests') {
+					steps {
+						sh 'node ./backend/test.js'
+					}
+				}
+
+				stage ('Front Test') {
+					steps {
+						sh 'node ./frontend/test.js'
+					}
+				}
 			}
 		}
 
-		stage ('Frontend Test') {
-			steps {
-				sh 'node ./frontend/test.js'
-			}
-		}
+		
 	}
 }
