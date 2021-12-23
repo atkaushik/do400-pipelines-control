@@ -6,7 +6,7 @@ pipeline {
 		}
 	}
 	parameters {
-		booleanParam (name: "RUN_FRONT_END_TEST", default: true)
+		booleanParam (name: "RUN_FRONT_END_TEST", defaultValue: true)
 	}
 
 	stages {
