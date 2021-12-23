@@ -8,24 +8,13 @@ pipeline {
 
 
 	stages {
-		stage (' Run Test') {
+		stage (' Run shell script') {
 			steps {
-				echo "running test....."
+				sh 'uname -a'
 			}
 			
 		}
-		stage ('deploy') {
-			when { 
-				expression { env.GIT_BRANCH == 'origin/main'}
-				beforeInput true
-			}
-			input {
-				message 'Deploy the application'
-			}
-			steps {
-				echo "deploying......"
-			}
-		}
+
 		}
 
 		
