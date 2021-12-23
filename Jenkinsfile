@@ -5,29 +5,20 @@ pipeline {
 
 		}
 	}
-	parameters {
-		booleanParam (name: "RUN_FRONT_END_TEST", defaultValue: true)
-	}
+
 
 	stages {
-		stage (' RUn Test') {
-			parallel {
-				stage ('Backend Tests') {
-					steps {
-						sh 'node ./backend/test.js'
-					}
-				}
-
-				stage ('Front Test') {
-
-					when { expression { params.RUN_FRONT_END_TEST}}
-					steps {
-						sh 'node ./frontend/test.js'
-					}
-				}
+		stage (' Run Test') {
+			echo "running test....."
+		}
+		stage ('deploy') {
+			when { expression { env.GIT_BRANCH == 'origin/main'}}
+			steps {
+				echo "deploying......"
 			}
+		}
 		}
 
 		
-	}
+	
 }
