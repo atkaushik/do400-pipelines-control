@@ -9,7 +9,10 @@ pipeline {
 
 	stages {
 		stage (' Run Test') {
-			echo "running test....."
+			step {
+				echo "running test....."
+			}
+			
 		}
 		stage ('deploy') {
 			when { expression { env.GIT_BRANCH == 'origin/main'}}
