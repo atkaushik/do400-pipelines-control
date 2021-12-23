@@ -10,7 +10,7 @@ pipeline {
 	stages {
 		stage (' Run shell script') {
 			steps {
-				sh script 'ls -la /tmp/', returnStdout: true
+				sh script: 'ls -la /tmp/', returnStdout: true
 			}
 			
 		}
