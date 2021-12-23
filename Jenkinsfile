@@ -5,6 +5,9 @@ pipeline {
 
 		}
 	}
+	parameters {
+		booleanParam (name: "RUN_FRONT_END_TEST", default: true)
+	}
 
 	stages {
 		stage (' RUn Test') {
@@ -16,6 +19,8 @@ pipeline {
 				}
 
 				stage ('Front Test') {
+
+					when { expression { param.RUN_FRONT_END_TEST}}
 					steps {
 						sh 'node ./frontend/test.js'
 					}
